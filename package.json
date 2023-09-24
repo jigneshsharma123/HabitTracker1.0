@@ -1,0 +1,22 @@
+{
+  "name": "habit1.0",
+  "version": "1.0.0",
+  "description": "habit tracker going to be the full web based application ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node" : ">=14.20.1"
+  },
+  "author": "jignesh_sharam",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.5.2",
+    "nodemon": "^3.0.1"
+  }
+}

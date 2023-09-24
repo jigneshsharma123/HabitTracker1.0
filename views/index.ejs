@@ -1,0 +1,57 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Habit Tracker</h1>
+  </header>
+  
+  <div class="container">
+    <h2>All Habits</h2>
+    <ul class="habit-list">
+      <% habits.forEach(habit => { %>
+        <li class="<%= habit.status === 'Done' ? 'done' : '' %>">
+          <span class="habit-name"><%= habit.name %></span>
+          <div class="habit-statuses">
+            <% habit.statuses.forEach(status => { %>
+              <div class="status">
+                <span class="status-date"><%= formatDate(status.date) %></span>
+                <span class="status-value"><%= status.status %></span>
+              </div>
+            <% }); %>
+          </div>
+          <!-- Add forms and buttons for marking today's habit and changing statuses -->
+          <!-- For example: -->
+          <form action="/habits/<%= habit._id %>/mark" method="POST">
+            <button type="submit">Mark Today</button>
+          </form>
+          <form action="/habits/<%= habit._id %>/change-status" method="POST">
+            <select name="newStatus">
+              <option value="Done">Done</option>
+              <option value="Not Done">Not Done</option>
+              <option value="None">None</option>
+            </select>
+            <button type="submit">Change Status</button>
+          </form>
+          <span class="habit-actions">
+            <a href="/habits/<%= habit._id %>/edit">Edit</a>
+            <form action="/habits/<%= habit._id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit">Delete</button>
+            </form>
+          </span>
+        </li>
+      <% }); %>
+    </ul>
+    <a href="/habits/new" class="add-button">Add Habit</a>
+  
+ </div>
+  
+</body>
+</html>

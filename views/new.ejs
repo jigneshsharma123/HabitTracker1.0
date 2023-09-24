@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Habit</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Habit Tracker</h1>
+  </header>
+  
+  <div class="container">
+    <h2>Add New Habit</h2>
+    <form action="/habits" method="POST" class="habit-form">
+      <label for="name">Habit Name</label>
+      <input type="text" id="name" name="habit[name]" required>
+      
+      <button type="submit">Add Habit</button>
+    </form>
+    <a href="/habits" class="cancel-button">Cancel</a>
+  </div>
+</body>
+</html>
